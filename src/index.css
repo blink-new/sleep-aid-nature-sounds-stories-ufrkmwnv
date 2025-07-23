@@ -1,0 +1,107 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 258 90% 66%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+    --accent: 258 90% 66%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 258 90% 66%;
+    --radius: 0.75rem;
+    
+    /* Custom sleep app colors */
+    --sleep-primary: 258 90% 66%;
+    --sleep-accent: 258 90% 66%;
+    --sleep-bg: 15 23% 6%;
+    --sleep-card: 240 10% 8%;
+    --sleep-border: 240 3.7% 15.9%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply bg-[hsl(var(--sleep-bg))] text-foreground font-sans;
+
+    background: linear-gradient(135deg, hsl(15deg 23% 6%) 0%, hsl(258deg 90% 8%) 100%);
+    min-height: 100vh;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  .sleep-gradient {
+    background: linear-gradient(135deg, hsl(15deg 23% 6%) 0%, hsl(258deg 90% 8%) 100%);
+  }
+  
+  .glass-effect {
+    background: rgb(255 255 255 / 5%);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgb(255 255 255 / 10%);
+  }
+  
+  .wave-animation {
+    animation: wave 2s ease-in-out infinite;
+  }
+  
+  .pulse-animation {
+    animation: pulse 3s ease-in-out infinite;
+  }
+  
+  .hover-lift {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .hover-lift:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px rgb(0 0 0 / 30%);
+  }
+  
+  @keyframes wave {
+    0%, 100% { 
+      transform: scaleY(1); 
+      opacity: 70%; 
+    }
+
+    50% { 
+      transform: scaleY(1.8); 
+      opacity: 100%; 
+    }
+  }
+  
+  @keyframes pulse {
+    0%, 100% { 
+      opacity: 60%; 
+      transform: scale(1); 
+    }
+
+    50% { 
+      opacity: 100%; 
+      transform: scale(1.05); 
+    }
+  }
+}
